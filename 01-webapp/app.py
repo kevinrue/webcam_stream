@@ -1,4 +1,3 @@
-# import the necessary packages
 from flask import Response, Flask, render_template
 import threading
 import argparse 
