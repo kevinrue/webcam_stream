@@ -15,6 +15,7 @@ def loop_stream(video_stream):
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
 
         baseline.append_frame(frame)
+        baseline.compute_median_gray()
 
         # Display
         cv2.imshow("Output", frame)
