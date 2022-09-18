@@ -2,15 +2,14 @@ import argparse
 import cv2
 import sys
 from cli.args import process_filename
+from video.stream import get_stream
 
 
 def main():
     parser = init_argparse()
     args = parser.parse_args()
     filename = process_filename(args.filename)
-    video_stream = cv2.VideoCapture(filename)
-    if not video_stream.isOpened():
-        raise IOError("Cannot open video stream")
+    video_stream = get_stream(filename)
 
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:

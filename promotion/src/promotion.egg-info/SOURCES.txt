@@ -11,3 +11,5 @@ src/promotion.egg-info/dependency_links.txt
 src/promotion.egg-info/top_level.txt
 src/promotion/cli/__init__.py
 src/promotion/cli/args.py
+src/promotion/video/__init__.py
+src/promotion/video/stream.py
