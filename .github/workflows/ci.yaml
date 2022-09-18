@@ -33,7 +33,8 @@ jobs:
 
       - name: Install package
         run: |
-          cd promotion
+          pwd
+          cd webcam_stream/promotion
           pip install .
 
       - name: Test with pytest
