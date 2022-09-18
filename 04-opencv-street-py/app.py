@@ -66,9 +66,11 @@ while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
     # the median frame
     difference_frame = cv2.absdiff(gray_frame, gray_median_frame)
 
-    blurred = cv2.GaussianBlur(difference_frame, blurring_gaussian_kernel_size, 0)
+    blurred = cv2.GaussianBlur(
+        difference_frame, blurring_gaussian_kernel_size, 0)
 
-    ret, tframe = cv2.threshold(blurred, threshold_min, threshold_max, cv2.THRESH_TOZERO)
+    ret, tframe = cv2.threshold(
+        blurred, threshold_min, threshold_max, cv2.THRESH_TOZERO)
 
     (cnts, _) = cv2.findContours(
         tframe.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
@@ -107,11 +109,15 @@ while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
                     bounding_rectangle_thickness,
                 )
 
-    cv2.putText(frame, "Native frame", (1920-250,1080-30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
-    cv2.putText(gray_frame, "Gray frame", (1920-450,1080-30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
-    cv2.putText(tframe, "Thresholded frame", (1920-350,1080-30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
-    cv2.putText(gray_median_frame, "Gray median frame", (1920-550,1080-30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
-    
+    cv2.putText(frame, "Native frame", (1920-250, 1080-30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 1, cv2.LINE_AA)
+    cv2.putText(gray_frame, "Gray frame", (1920-450, 1080-30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
+    cv2.putText(tframe, "Thresholded frame", (1920-350, 1080-30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
+    cv2.putText(gray_median_frame, "Gray median frame", (1920-550, 1080-30),
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
+
     stacked_frames = np.vstack((
         np.hstack((
             frame,
