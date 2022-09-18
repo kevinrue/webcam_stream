@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: promotion
 Version: 0.0.1
-Summary: Toolkit to write and execute pipelines using the DRMAA library.
-Home-page: https://github.com/kevinrue/drumroll
+Summary: Application for processing a video stream and detecting motion.
+Home-page: https://github.com/kevinrue/promotion
 Author: Kevin Rue-Albrecht
-Author-email: kevin.rue-albrecht@imm.ox.ac.uk
-Project-URL: Bug Tracker, https://github.com/kevinrue/drumroll/issues
+Author-email: kevinrue67@gmail.com
+Project-URL: Bug Tracker, https://github.com/kevinrue/promotion/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent

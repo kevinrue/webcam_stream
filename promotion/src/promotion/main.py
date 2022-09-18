@@ -1,20 +1,13 @@
 import argparse
 import cv2
 import sys
-
-
-def args_process_filename(filename):
-    if filename.isdigit():
-        filename = int(filename)
-    else:
-        filename = filename
-    return filename
+from cli.args import process_filename
 
 
 def main():
     parser = init_argparse()
     args = parser.parse_args()
-    filename = args_process_filename(args.filename)
+    filename = process_filename(args.filename)
     video_stream = cv2.VideoCapture(filename)
     if not video_stream.isOpened():
         raise IOError("Cannot open video stream")

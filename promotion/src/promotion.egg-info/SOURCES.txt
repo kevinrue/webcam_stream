@@ -9,3 +9,5 @@ src/promotion.egg-info/PKG-INFO
 src/promotion.egg-info/SOURCES.txt
 src/promotion.egg-info/dependency_links.txt
 src/promotion.egg-info/top_level.txt
+src/promotion/cli/__init__.py
+src/promotion/cli/args.py
