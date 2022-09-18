@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: promotion
+Version: 0.0.1
+Summary: Toolkit to write and execute pipelines using the DRMAA library.
+Home-page: https://github.com/kevinrue/drumroll
+Author: Kevin Rue-Albrecht
+Author-email: kevin.rue-albrecht@imm.ox.ac.uk
+Project-URL: Bug Tracker, https://github.com/kevinrue/drumroll/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# drumroll
+
+This is a package that provides a toolkit to write and execute computational pipelines.
+In particular,the package uses the DRMAA library to manage pipeline tasks
+executed on high-performance computing cluters.

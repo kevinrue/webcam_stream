@@ -33,10 +33,7 @@ jobs:
 
       - name: Install package
         run: |
-          pwd
-          ls
-          cd promotion
-          pip install .
+          pip install ./promotion
 
       - name: Test with pytest
         run: |

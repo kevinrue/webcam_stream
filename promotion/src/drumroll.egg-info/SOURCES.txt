@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/promotion/__init__.py
+src/promotion/example.py
+src/promotion.egg-info/PKG-INFO
+src/promotion.egg-info/SOURCES.txt
+src/promotion.egg-info/dependency_links.txt
+src/promotion.egg-info/top_level.txt
