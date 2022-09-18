@@ -9,7 +9,7 @@ def get_stream(filename):
     return video_stream
 
 
-def loop_stream(video_stream):
+def loop_stream(video_stream, fps):
     baseline = Baseline()
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
@@ -19,7 +19,8 @@ def loop_stream(video_stream):
 
         # Display
         cv2.imshow("Output", frame)
-        c = cv2.waitKey(1)
+        # Duration of each frame on screen
+        c = cv2.waitKey(int(1000 / fps))
         if c == 27:
             break
 

@@ -1,15 +1,16 @@
 import argparse
 import sys
-from cli.args import process_filename
+import cli.args
 from video.stream import get_stream, loop_stream
 
 
 def main():
     parser = init_argparse()
     args = parser.parse_args()
-    filename = process_filename(args.filename)
+    filename = cli.args.process_filename(args.filename)
+    fps = cli.args.process_fps(args.fps)
     video_stream = get_stream(filename)
-    loop_stream(video_stream)
+    loop_stream(video_stream, fps)
     video_stream.release()
 
 
@@ -22,7 +23,7 @@ def init_argparse():
         "-v", "--version", action="version", version=f"{parser.prog} version 1.0.0"
     )
     parser.add_argument("-f", "--filename")
-    parser.add_argument("files", nargs="*")
+    parser.add_argument("--fps")
     return parser
 
 

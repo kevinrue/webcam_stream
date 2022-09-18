@@ -4,3 +4,7 @@ def process_filename(filename):
     else:
         filename = filename
     return filename
+
+def process_fps(fps):
+    fps = int(fps)
+    return fps
