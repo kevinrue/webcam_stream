@@ -32,3 +32,12 @@ Use of the optimised parameters in `03-opencv-street-ipynb`
 and major modifications to the app in `02-opencv-tutorial`
 to simultaneously display frames at key steps of processing.
 
+### promotion
+
+Python package that collates the scripts above.
+
+#### Usage
+
+```python
+python promotion/src/promotion/main.py -f 1 --fps 30
+```
