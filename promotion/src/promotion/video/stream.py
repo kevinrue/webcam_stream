@@ -1,4 +1,5 @@
 import cv2
+from video.baseline import Baseline
 
 
 def get_stream(filename):
@@ -9,8 +10,11 @@ def get_stream(filename):
 
 
 def loop_stream(video_stream):
+    baseline = Baseline()
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
+
+        baseline.append_frame(frame)
 
         # Display
         cv2.imshow("Output", frame)

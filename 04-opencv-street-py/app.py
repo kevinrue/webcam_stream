@@ -79,7 +79,7 @@ while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
     for cnt in cnts:
         x, y, w, h = cv2.boundingRect(cnt)
         if y > 200:  # Disregard item that are the top of the picture
-            if h > min_object_shape[0] or h > min_object_shape[1]:
+            if h > min_object_shape[0] or w > min_object_shape[1]:
                 cv2.rectangle(
                     frame,
                     (x, y),
