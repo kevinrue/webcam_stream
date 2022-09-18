@@ -1,12 +1,23 @@
+import argparse
 import cv2
 import sys
 
 
-def main(filename=1):
+def args_process_filename(filename):
+    if filename.isdigit():
+        filename = int(filename)
+    else:
+        filename = filename
+    return filename
+
+
+def main():
+    parser = init_argparse()
+    args = parser.parse_args()
+    filename = args_process_filename(args.filename)
     video_stream = cv2.VideoCapture(filename)
     if not video_stream.isOpened():
         raise IOError("Cannot open video stream")
-        video_stream.release()
 
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
@@ -19,8 +30,21 @@ def main(filename=1):
 
         # Read next frame
         ret, frame = video_stream.read()
-    
+
     video_stream.release()
+
+
+def init_argparse():
+    parser = argparse.ArgumentParser(
+        usage="%(prog)s [OPTION] [FILE]...",
+        description="Print or check SHA1 (160-bit) checksums.",
+    )
+    parser.add_argument(
+        "-v", "--version", action="version", version=f"{parser.prog} version 1.0.0"
+    )
+    parser.add_argument("-f", "--filename")
+    parser.add_argument("files", nargs="*")
+    return parser
 
 
 if __name__ == "__main__":
