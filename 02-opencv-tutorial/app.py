@@ -1,7 +1,6 @@
 import numpy as np
 import cv2
 import random
-from matplotlib import pyplot as plt
 
 n_control_frames = 10
 control_frames = []
