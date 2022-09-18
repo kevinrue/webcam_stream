@@ -1,8 +1,7 @@
 import argparse
-import cv2
 import sys
 from cli.args import process_filename
-from video.stream import get_stream
+from video.stream import get_stream, loop_stream
 
 
 def main():
@@ -10,19 +9,7 @@ def main():
     args = parser.parse_args()
     filename = process_filename(args.filename)
     video_stream = get_stream(filename)
-
-    ret, frame = video_stream.read()
-    while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
-
-        # Display
-        cv2.imshow("Output", frame)
-        c = cv2.waitKey(1)
-        if c == 27:
-            break
-
-        # Read next frame
-        ret, frame = video_stream.read()
-
+    loop_stream(video_stream)
     video_stream.release()
 
 
