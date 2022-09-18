@@ -2,10 +2,24 @@ import cv2
 import sys
 
 
-def main(filename=0):
+def main(filename=1):
     video_stream = cv2.VideoCapture(filename)
     if not video_stream.isOpened():
         raise IOError("Cannot open video stream")
+        video_stream.release()
+
+    ret, frame = video_stream.read()
+    while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
+
+        # Display
+        cv2.imshow("Output", frame)
+        c = cv2.waitKey(1)
+        if c == 27:
+            break
+
+        # Read next frame
+        ret, frame = video_stream.read()
+    
     video_stream.release()
 
 
