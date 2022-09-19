@@ -46,5 +46,6 @@ python promotion/src/promotion/main.py \
     --threshold_min 5 \
     --threshold_max 255 \
     --object_shape_min 50x50 \
-    --object_rectangle_color 0:255:0
+    --object_rectangle_color 0:255:0 \
+    --object_rectangle_thickness 2
 ```

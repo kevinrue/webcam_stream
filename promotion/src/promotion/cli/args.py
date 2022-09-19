@@ -1,4 +1,5 @@
 import argparse
+from ast import parse
 
 
 def init_argparse():
@@ -16,6 +17,7 @@ def init_argparse():
     parser.add_argument("--threshold_max")
     parser.add_argument("--object_shape_min")
     parser.add_argument("--object_rectangle_color")
+    parser.add_argument("--object_rectangle_thickness")
     return parser
 
 
