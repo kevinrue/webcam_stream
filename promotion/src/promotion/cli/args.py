@@ -13,6 +13,8 @@ def init_argparse():
     parser.add_argument("-f", "--filename")
     parser.add_argument("--fps")
     parser.add_argument("--resolution")
+    parser.add_argument("--baseline_frequency")
+    parser.add_argument("--baseline_frames")
     parser.add_argument("--blur_ksize")
     parser.add_argument("--threshold_min")
     parser.add_argument("--threshold_max")

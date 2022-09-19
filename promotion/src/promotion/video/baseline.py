@@ -4,11 +4,11 @@ import numpy as np
 
 
 class Baseline:
-    def __init__(self, frames=[], max_frames=30, median_gray_frame=None, fps=30, resolution=None):
+    def __init__(self, frames=[], max_frames=30, frequency=1, resolution=None, median_gray_frame=None):
         self.frames = frames
         self.max_frames = max_frames
         self.median_gray_frame = median_gray_frame
-        self.timedelta_min_seconds = 1 / fps
+        self.frequency = frequency
         self.resolution = resolution
         self.latest_update = datetime.datetime.now()
 
@@ -17,22 +17,23 @@ class Baseline:
         now = datetime.datetime.now()
         time_since_latest = now - self.latest_update
         # Skip collection of baseline frames in those conditions
-        if len(self.frames) >= self.max_frames or time_since_latest.total_seconds() < self.timedelta_min_seconds:
+        if time_since_latest.total_seconds() < self.frequency and len(self.frames) >= self.max_frames:
             if not force:
                 return False
+        # Apply maximum limit on number of baseline frames
+        # TODO: drop most outlier frame
+        if len(self.frames) >= self.max_frames:
+            n_remove = len(self.frames) - self.max_frames
+            del self.frames[0:n_remove]
         # Process frame
         if self.resolution is not None:
             frame = cv2.resize(frame, (self.resolution[0], self.resolution[1]))
         # Collect additional baseline frame
         self.frames.append(frame)
         self.latest_update = now
-        # Apply maximum limit on number of baseline frames
-        if len(self.frames) > self.max_frames:
-            n_remove = len(self.frames) - self.max_frames
-            del self.frames[0:n_remove]
 
     def compute_median_gray(self, force=False):
-        if len(self.frames) < self.max_frames or self.median_gray_frame is not None:
+        if len(self.frames) != self.max_frames or self.median_gray_frame is not None:
             if not force:
                 return False
         # Calculate the median along the time axis
