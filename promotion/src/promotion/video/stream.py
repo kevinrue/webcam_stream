@@ -1,6 +1,6 @@
 import cv2
 from video.baseline import Baseline
-
+from video.process import process_frame
 
 def get_stream(filename):
     video_stream = cv2.VideoCapture(filename)
@@ -9,13 +9,14 @@ def get_stream(filename):
     return video_stream
 
 
-def loop_stream(video_stream, fps):
+def loop_stream(video_stream, fps, ksize):
     baseline = Baseline(fps=fps)
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
 
         baseline.append_frame(frame)
         baseline.compute_median_gray()
+        frame = process_frame(frame, baseline, ksize)
 
         # Display
         cv2.imshow("Output", frame)

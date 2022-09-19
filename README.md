@@ -38,6 +38,9 @@ Python package that collates the scripts above.
 
 #### Usage
 
-```python
-python promotion/src/promotion/main.py -f 1 --fps 10
+```bash
+python promotion/src/promotion/main.py \
+    -f 1 \
+    --fps 10 \
+    --blur_ksize=61x61
 ```

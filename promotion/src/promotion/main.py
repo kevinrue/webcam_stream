@@ -8,8 +8,9 @@ def main():
     args = parser.parse_args()
     filename = cli.args.process_filename(args.filename)
     fps = cli.args.process_fps(args.fps)
+    ksize = cli.args.process_blur_ksize(args.blur_ksize)
     video_stream = get_stream(filename)
-    loop_stream(video_stream, fps)
+    loop_stream(video_stream, fps, ksize)
     video_stream.release()
 
 

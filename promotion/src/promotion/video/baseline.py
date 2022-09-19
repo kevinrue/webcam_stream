@@ -4,10 +4,10 @@ import numpy as np
 
 
 class Baseline:
-    def __init__(self, frames=[], max_frames=30, median_gray=None, fps=30):
+    def __init__(self, frames=[], max_frames=30, median_gray_frame=None, fps=30):
         self.frames = frames
         self.max_frames = max_frames
-        self.median_gray_frame = median_gray
+        self.median_gray_frame = median_gray_frame
         self.timedelta_min_seconds = 1 / fps
         self.latest_update = datetime.datetime.now()
 

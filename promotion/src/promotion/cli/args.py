@@ -11,6 +11,7 @@ def init_argparse():
     )
     parser.add_argument("-f", "--filename")
     parser.add_argument("--fps")
+    parser.add_argument("--blur_ksize")
     return parser
 
 
@@ -25,3 +26,9 @@ def process_filename(filename):
 def process_fps(fps):
     fps = int(fps)
     return fps
+
+
+def process_blur_ksize(ksize):
+    # Parse string and convert to integer tuple
+    ksize = tuple(int(x) for x in ksize.split("x"))
+    return ksize
