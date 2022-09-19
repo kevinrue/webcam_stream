@@ -1,10 +1,6 @@
 import cv2
 
 
-# Threshold on the minimum intensity (lower values are set to 0)
-threshold_min = 5
-# Threshold on the maximum intensity (higher values are capped)
-threshold_max = 255
 # Minimum object dimensions (height, width)
 min_object_shape = (50, 50)
 # Color of bounding rectangles around objects
@@ -13,7 +9,7 @@ bounding_rectangle_color = (0, 255, 0)
 bounding_rectangle_thickness = 2
 
 
-def process_frame(frame, baseline, blur_ksize):
+def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max):
     if baseline.median_gray_frame is None:
         return frame
     # Convert current frame to grayscale

@@ -12,6 +12,8 @@ def init_argparse():
     parser.add_argument("-f", "--filename")
     parser.add_argument("--fps")
     parser.add_argument("--blur_ksize")
+    parser.add_argument("--threshold_min")
+    parser.add_argument("--threshold_max")
     return parser
 
 
@@ -32,3 +34,13 @@ def process_blur_ksize(ksize):
     # Parse string and convert to integer tuple
     ksize = tuple(int(x) for x in ksize.split("x"))
     return ksize
+
+
+def process_threshold_min(threshold_min):
+    threshold_min = int(threshold_min)
+    return threshold_min
+
+
+def process_threshold_max(threshold_max):
+    threshold_max = int(threshold_max)
+    return threshold_max
