@@ -12,13 +12,17 @@ class Baseline:
         self.latest_update = datetime.datetime.now()
 
     def append_frame(self, frame, force=False):
+        # Apply FPS to the collection of baseline frames
         now = datetime.datetime.now()
         time_since_latest = now - self.latest_update
+        # Skip collection of baseline frames in those conditions
         if len(self.frames) >= self.max_frames or time_since_latest.total_seconds() < self.timedelta_min_seconds:
             if not force:
                 return False
+        # Collect additional baseline frame
         self.frames.append(frame)
         self.latest_update = now
+        # Apply maximum limit on number of baseline frames
         if len(self.frames) > self.max_frames:
             n_remove = len(self.frames) - self.max_frames
             del self.frames[0:n_remove]
