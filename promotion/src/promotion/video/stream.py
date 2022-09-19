@@ -11,10 +11,10 @@ def get_stream(filename):
 
 
 def loop_stream(
-    video_stream, fps, ksize, threshold_min, threshold_max, object_shape_min, object_rectangle_color,
+    video_stream, fps, resolution, ksize, threshold_min, threshold_max, object_shape_min, object_rectangle_color,
     object_rectangle_thickness
 ):
-    baseline = Baseline(fps=fps)
+    baseline = Baseline(fps=fps, resolution=resolution)
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
 

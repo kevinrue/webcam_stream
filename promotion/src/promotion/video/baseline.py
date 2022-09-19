@@ -4,11 +4,12 @@ import numpy as np
 
 
 class Baseline:
-    def __init__(self, frames=[], max_frames=30, median_gray_frame=None, fps=30):
+    def __init__(self, frames=[], max_frames=30, median_gray_frame=None, fps=30, resolution=None):
         self.frames = frames
         self.max_frames = max_frames
         self.median_gray_frame = median_gray_frame
         self.timedelta_min_seconds = 1 / fps
+        self.resolution = resolution
         self.latest_update = datetime.datetime.now()
 
     def append_frame(self, frame, force=False):
@@ -19,6 +20,9 @@ class Baseline:
         if len(self.frames) >= self.max_frames or time_since_latest.total_seconds() < self.timedelta_min_seconds:
             if not force:
                 return False
+        # Process frame
+        if self.resolution is not None:
+            frame = cv2.resize(frame, (self.resolution[0], self.resolution[1]))
         # Collect additional baseline frame
         self.frames.append(frame)
         self.latest_update = now
