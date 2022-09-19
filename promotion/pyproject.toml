@@ -1,3 +1,8 @@
 [build-system]
 requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
+
+[project]
+dependencies = [
+    opencv-python==4.6.0,
+]

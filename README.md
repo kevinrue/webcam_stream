@@ -39,5 +39,5 @@ Python package that collates the scripts above.
 #### Usage
 
 ```python
-python promotion/src/promotion/main.py -f 1 --fps 30
+python promotion/src/promotion/main.py -f 1 --fps 10
 ```
