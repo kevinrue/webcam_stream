@@ -2,6 +2,7 @@ import cv2
 from video.baseline import Baseline
 from video.process import process_frame
 
+
 def get_stream(filename):
     video_stream = cv2.VideoCapture(filename)
     if not video_stream.isOpened():
