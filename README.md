@@ -43,8 +43,9 @@ python promotion/src/promotion/main.py \
     -f 1 \
     --fps 10 \
     --resolution 1920x1080 \
-    --blur_ksize 61x61 \
-    --threshold_min 20 \
+    --baseline_frequency 1 \
+    --blur_ksize 51x51 \
+    --threshold_min 10 \
     --threshold_max 255 \
     --object_shape_min 50x50 \
     --object_rectangle_color 0:255:0 \
