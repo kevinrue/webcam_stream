@@ -10,14 +10,14 @@ def get_stream(filename):
     return video_stream
 
 
-def loop_stream(video_stream, fps, ksize, threshold_min, threshold_max):
+def loop_stream(video_stream, fps, ksize, threshold_min, threshold_max, object_shape_min):
     baseline = Baseline(fps=fps)
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
 
         baseline.append_frame(frame)
         baseline.compute_median_gray()
-        frame = process_frame(frame, baseline, ksize, threshold_min, threshold_max)
+        frame = process_frame(frame, baseline, ksize, threshold_min, threshold_max, object_shape_min)
 
         # Display
         cv2.imshow("Output", frame)

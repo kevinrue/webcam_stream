@@ -1,15 +1,13 @@
 import cv2
 
 
-# Minimum object dimensions (height, width)
-min_object_shape = (50, 50)
 # Color of bounding rectangles around objects
 bounding_rectangle_color = (0, 255, 0)
 # Thickness of lines for bounding rectangles around objects
 bounding_rectangle_thickness = 2
 
 
-def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max):
+def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max, object_shape_min):
     if baseline.median_gray_frame is None:
         return frame
     # Convert current frame to grayscale
@@ -31,7 +29,7 @@ def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max):
     for cnt in cnts:
         x, y, w, h = cv2.boundingRect(cnt)
         if y > 200:  # Disregard item that are the top of the picture
-            if h > min_object_shape[0] and w > min_object_shape[1]:
+            if h > object_shape_min[0] and w > object_shape_min[1]:
                 cv2.rectangle(
                     frame,
                     (x, y),
