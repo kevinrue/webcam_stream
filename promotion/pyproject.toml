@@ -7,3 +7,4 @@ name = "promotion"
 dependencies = [
     "opencv-python==4.6.0",
 ]
+dynamic = ["version", "description"]
