@@ -1,13 +1,11 @@
 import cv2
 
 
-# Color of bounding rectangles around objects
-bounding_rectangle_color = (0, 255, 0)
 # Thickness of lines for bounding rectangles around objects
 bounding_rectangle_thickness = 2
 
 
-def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max, object_shape_min):
+def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max, object_shape_min, object_rectangle_color):
     if baseline.median_gray_frame is None:
         return frame
     # Convert current frame to grayscale
@@ -34,7 +32,7 @@ def process_frame(frame, baseline, blur_ksize, threshold_min, threshold_max, obj
                     frame,
                     (x, y),
                     (x + w, y + h),
-                    bounding_rectangle_color,
+                    object_rectangle_color,
                     bounding_rectangle_thickness,
                 )
 

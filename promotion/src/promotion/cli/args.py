@@ -15,6 +15,7 @@ def init_argparse():
     parser.add_argument("--threshold_min")
     parser.add_argument("--threshold_max")
     parser.add_argument("--object_shape_min")
+    parser.add_argument("--object_rectangle_color")
     return parser
 
 
@@ -32,7 +33,12 @@ def process_integer(fps):
 
 
 def process_shape(string):
-    print(string)
     # Parse string and convert to integer tuple
     value = tuple(int(x) for x in string.split("x"))
+    return value
+
+
+def process_color(string):
+    # Parse string and convert to integer tuple
+    value = tuple(int(x) for x in string.split(":"))
     return value

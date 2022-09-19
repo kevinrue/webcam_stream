@@ -45,5 +45,6 @@ python promotion/src/promotion/main.py \
     --blur_ksize 61x61 \
     --threshold_min 5 \
     --threshold_max 255 \
-    --object_shape_min 50x50
+    --object_shape_min 50x50 \
+    --object_rectangle_color 0:255:0
 ```
