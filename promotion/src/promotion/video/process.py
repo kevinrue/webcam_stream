@@ -7,6 +7,8 @@ def process_frame(
 ):
     if baseline.median_gray_frame is None:
         return frame
+    if baseline.resolution is not None:
+        frame = cv2.resize(frame, (baseline.resolution[0], baseline.resolution[1]))
     # Convert current frame to grayscale
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # Calculate absolute difference of current frame and

@@ -42,6 +42,7 @@ Python package that collates the scripts above.
 python promotion/src/promotion/main.py \
     -f 1 \
     --fps 10 \
+    --resolution 960x540 \
     --blur_ksize 61x61 \
     --threshold_min 5 \
     --threshold_max 255 \
