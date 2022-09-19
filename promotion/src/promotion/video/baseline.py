@@ -4,7 +4,7 @@ import numpy as np
 
 
 class Baseline:
-    def __init__(self, frames=[], max_frames=30, median_gray_frame=None, frequency=1, resolution=None):
+    def __init__(self, frames=[], max_frames=30, frequency=1, resolution=None, median_gray_frame=None):
         self.frames = frames
         self.max_frames = max_frames
         self.median_gray_frame = median_gray_frame

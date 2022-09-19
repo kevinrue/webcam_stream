@@ -43,6 +43,7 @@ python promotion/src/promotion/main.py \
     -f 1 \
     --fps 10 \
     --resolution 1920x1080 \
+    --baseline_frames 10 \
     --baseline_frequency 1 \
     --blur_ksize 51x51 \
     --threshold_min 10 \
