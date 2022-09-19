@@ -10,7 +10,7 @@ def get_stream(filename):
 
 
 def loop_stream(video_stream, fps):
-    baseline = Baseline()
+    baseline = Baseline(fps=fps)
     ret, frame = video_stream.read()
     while ret and frame.shape[0] > 0 and frame.shape[1] > 0:
 
