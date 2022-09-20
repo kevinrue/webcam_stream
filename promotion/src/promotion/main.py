@@ -23,7 +23,6 @@ def main():
         threshold_max, detection_exclude_margins, object_shape_min, object_rectangle_color, object_rectangle_thickness)
     app.open_stream()
     app.loop()
-    
 
 
 if __name__ == "__main__":
