@@ -38,6 +38,8 @@ Python package that collates the scripts above.
 
 #### Usage
 
+Live webcam stream:
+
 ```bash
 python promotion/src/promotion/main.py \
     -f 1 \
@@ -48,7 +50,26 @@ python promotion/src/promotion/main.py \
     --blur_ksize 51x51 \
     --threshold_min 10 \
     --threshold_max 255 \
+    --detection_exclude_margins 200,0,0,0 \
     --object_shape_min 50x50 \
+    --object_rectangle_color 0:255:0 \
+    --object_rectangle_thickness 2
+```
+
+Recorded video:
+
+```bash
+python promotion/src/promotion/main.py \
+    -f videos/CarsDrivingUnderBridge.mp4 \
+    --fps 10 \
+    --resolution 1280x720 \
+    --baseline_frames 20 \
+    --baseline_frequency 1 \
+    --blur_ksize 51x51 \
+    --threshold_min 10 \
+    --threshold_max 255 \
+    --detection_exclude_margins 20,0,0,0 \
+    --object_shape_min 40x40 \
     --object_rectangle_color 0:255:0 \
     --object_rectangle_thickness 2
 ```

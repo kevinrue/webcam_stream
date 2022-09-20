@@ -18,6 +18,7 @@ def init_argparse():
     parser.add_argument("--blur_ksize")
     parser.add_argument("--threshold_min")
     parser.add_argument("--threshold_max")
+    parser.add_argument("--detection_exclude_margins")
     parser.add_argument("--object_shape_min")
     parser.add_argument("--object_rectangle_color")
     parser.add_argument("--object_rectangle_thickness")
@@ -46,4 +47,10 @@ def process_shape(string):
 def process_color(string):
     # Parse string and convert to integer tuple
     value = tuple(int(x) for x in string.split(":"))
+    return value
+
+def process_margins(string):
+    # Parse string and convert to integer tuple
+    # top, right, bottom, left
+    value = tuple(int(x) for x in string.split(","))
     return value
