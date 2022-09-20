@@ -1,0 +1,2 @@
+[console_scripts]
+promotion = promotion.main:main
