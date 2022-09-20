@@ -2,8 +2,8 @@ import cv2
 
 
 def process_frame(
-    frame, baseline, blur_ksize, threshold_min, threshold_max, object_shape_min, object_rectangle_color,
-    object_rectangle_thickness
+    frame, baseline, blur_ksize, threshold_min, threshold_max, detection_exclude_margins,
+    object_shape_min, object_rectangle_color, object_rectangle_thickness
 ):
     if baseline.median_gray_frame is None:
         return frame
@@ -27,7 +27,7 @@ def process_frame(
 
     for cnt in cnts:
         x, y, w, h = cv2.boundingRect(cnt)
-        if y > 200:  # Disregard item that are the top of the picture
+        if y > detection_exclude_margins[0]:
             if h > object_shape_min[0] and w > object_shape_min[1]:
                 cv2.rectangle(
                     frame,

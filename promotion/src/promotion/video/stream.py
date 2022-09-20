@@ -6,13 +6,14 @@ from video.process import process_frame
 class App:
     def __init__(
         self, filename, fps, resolution, baseline_frames, baseline_frequency, blur_ksize, threshold_min,
-        threshold_max, object_shape_min, object_rectangle_color, object_rectangle_thickness
+        threshold_max, detection_exclude_margins, object_shape_min, object_rectangle_color, object_rectangle_thickness
     ):
         self.filename = filename
         self.fps = fps
         self.blur_ksize = blur_ksize
         self.threshold_min = threshold_min
         self.threshold_max = threshold_max
+        self.detection_exclude_margins = detection_exclude_margins
         self.object_shape_min = object_shape_min
         self.object_rectangle_color = object_rectangle_color
         self.object_rectangle_thickness = object_rectangle_thickness
@@ -34,8 +35,8 @@ class App:
             self.baseline.append_frame(frame)
             self.baseline.compute_median_gray()
             frame = process_frame(
-                frame, self.baseline, self.blur_ksize, self.threshold_min, self.threshold_max, self.object_shape_min,
-                self.object_rectangle_color, self.object_rectangle_thickness)
+                frame, self.baseline, self.blur_ksize, self.threshold_min, self.threshold_max, self.detection_exclude_margins,
+                self.object_shape_min, self.object_rectangle_color, self.object_rectangle_thickness)
 
             # Display
             cv2.imshow("Output", frame)
