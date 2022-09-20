@@ -44,7 +44,7 @@ class App:
 
             # Read next frame
             ret, frame = self.stream.read()
-    
+
     def process_frame(self, frame):
         if self.baseline.median_gray_frame is None:
             return frame
