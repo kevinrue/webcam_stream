@@ -8,6 +8,8 @@ src/promotion/main.py
 src/promotion.egg-info/PKG-INFO
 src/promotion.egg-info/SOURCES.txt
 src/promotion.egg-info/dependency_links.txt
+src/promotion.egg-info/entry_points.txt
+src/promotion.egg-info/requires.txt
 src/promotion.egg-info/top_level.txt
 src/promotion/cli/__init__.py
 src/promotion/cli/args.py

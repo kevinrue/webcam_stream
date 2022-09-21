@@ -1,5 +1,5 @@
 import cv2
-from video.baseline import Baseline
+from promotion.video.baseline import Baseline
 
 
 class App:
