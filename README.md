@@ -41,7 +41,7 @@ Python package that collates the scripts above.
 Live webcam stream:
 
 ```bash
-python promotion/src/promotion/main.py \
+promotion \
     -f 1 \
     --fps 10 \
     --resolution 1920x1080 \
@@ -59,7 +59,7 @@ python promotion/src/promotion/main.py \
 Recorded video:
 
 ```bash
-python promotion/src/promotion/main.py \
+promotion \
     -f videos/CarsDrivingUnderBridge.mp4 \
     --fps 10 \
     --resolution 1280x720 \
